@@ -1,73 +1,78 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo_text.svg" width="320" alt="Nest Logo" /></a>
-</p>
+# Foleon Node.js Assessment
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+This Rest API serves Page, Row, Column, and Content (Title, Image, Quote, Paragraph).
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+## Introduction
 
-## Description
+As per the assignment, I chose an OOP structure for implementing this Rest API, which is why I have decided to utilize `Nest.js` to ensure an integrated and scalable architecture in order to meet the needs of the API.
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+During the design of the database structure, I found the documentation a bit unclear, so I used the `Many To Many` relationships between tables, which is scalable and helps to avoid having redundant data.
+
+After installing and running the application, you can access the Swagger documentation at - [`http://localhost:3000/api`](http://localhost:3000/api)
+
+As well, I have deployed rest APIs on my own server, which you can access via the following link:
+[`http://167.235.229.29:3000/api`](http://167.235.229.29:3000/api)
+
+## Links
+
+- [Database Diagram](https://dbdiagram.io/d/62d1486acc1bc14cc5c604ef)
+
+## Technologies
+
+- **NestJS** - Main Framework
+- **OpenAPI (Swagger)** - API documentation
+- **Sequelize** ORM
+- **Jest** Testing Framework
+- **MySQL** DataBase
+- **Class-Validator** Validation
+- **SuperTest** (e2e HTTP tests)
+
+## If I had more time, I would like to add or modify:
+
+- Refactor my code to detect bugs and bottlenecks.
+- Track errors and logs with a log tracker library. (e.g. Datadog)
 
 ## Installation
 
+Clone `.env.example` to `.env` once you change the environment variables with desired values.
+
+The `.env.example` file contains environment variables like authentication for MySQL database used by `docker-compose`.
+
+Before you can start the project locally, you will need to install the dependencies:
+
 ```bash
-$ npm install
+  npm install --force
 ```
 
-## Running the app
+Use the following commands to run MySQL DataBase with Docker:
 
 ```bash
-# development
-$ npm run start
+  docker compose up -d
+```
 
-# watch mode
-$ npm run start:dev
+As a next step, run the DataBase migration and seed the DataBase with samples data:
 
-# production mode
-$ npm run start:prod
+```bash
+  npm run migrate
+  npm run seed
+```
+
+The last step is to run the application in the development mode.
+
+```bash
+  npm run start:dev
 ```
 
 ## Test
 
+Run the following command for e2e testing
+
 ```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
+  npm run test:e2e
 ```
 
-## Support
+## Demo
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+The link below provides a short video that explains how it works.
 
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](LICENSE).
+https://s8.gifyu.com/images/foleon-demo720.gif
